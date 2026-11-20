@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SignBridge AI | Breaking Silence. Connecting People.</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EAF3FF;--bg2:#F1F7FF;--navy:#10152B;--indigo:#25245A;--violet:#8B5CF6;--vs:#6D3FE0;--lav:#C4B5FD;--turq:#2DD4BF;--text:#334155;--muted:#475569;--line:#D6E4F7;--sh:0 10px 30px rgba(37,36,90,.08)}
+*{box-sizing:border-box}[hidden]{display:none!important}html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--text);background:linear-gradient(180deg,var(--bg),var(--bg2));min-height:100vh;line-height:1.6}
+h1,h2,h3{font-family:Poppins,sans-serif;color:var(--navy);line-height:1.15;margin:0 0 12px}
+h1{font-size:clamp(2rem,5vw,3.3rem);font-weight:800}h2{font-size:clamp(1.4rem,3vw,2rem)}h3{font-size:1.08rem}
+a{color:var(--vs)}:focus-visible{outline:3px solid var(--vs);outline-offset:3px;border-radius:8px}
+.muted{color:var(--muted);font-size:.92rem}.lead{font-size:1.15rem;max-width:60ch}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:var(--sh);transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(37,36,90,.12)}
+a.card{display:block;text-decoration:none;color:inherit}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.chip{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:14px;margin-bottom:10px;font:800 1.1rem Poppins;color:var(--indigo);background:linear-gradient(135deg,var(--lav),#e4defe)}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:12px 24px;border-radius:14px;border:2px solid transparent;font:700 1rem Manrope,sans-serif;text-decoration:none;cursor:pointer;background:#fff;color:var(--indigo);border-color:var(--lav);transition:transform .15s,background .2s}
+.btn:hover{transform:translateY(-2px)}.btn.p{background:var(--vs);color:#fff;border-color:var(--vs)}.btn.p:hover{background:var(--indigo)}
+.btn.d{color:#B42318;border-color:#F3B4AE}.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.mark{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--vs),var(--indigo))}
+.bn{font:800 1.2rem Poppins;color:var(--navy)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.topbar{position:sticky;top:0;z-index:10;background:rgba(234,243,255,.88);backdrop-filter:blur(10px)}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:14px;padding-bottom:14px}
+.nav{display:flex;align-items:center;gap:22px;flex-wrap:wrap}.nav a:not(.btn){font:700 .95rem Manrope;color:var(--navy);text-decoration:none}
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;padding:56px 0 36px}
+.eyebrow{font:800 .85rem Manrope;letter-spacing:.1em;text-transform:uppercase;color:var(--vs);margin:0 0 10px}
+.cta{display:flex;gap:14px;flex-wrap:wrap;margin:22px 0 10px}
+.art{position:relative;min-height:340px;display:grid;place-items:center}
+.blob{position:absolute;border-radius:50%;filter:blur(8px);animation:fl 7s ease-in-out infinite}
+.b1{width:210px;height:210px;background:var(--lav);opacity:.5;top:0;right:10px}.b2{width:140px;height:140px;background:var(--turq);opacity:.35;bottom:10px;left:10px;animation-delay:-3s}
+.scan{position:relative;width:min(330px,100%);background:#fff;border-radius:28px;padding:18px;box-shadow:var(--sh);border:1px solid var(--line);overflow:hidden}
+.line{position:absolute;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--turq),transparent);animation:sc 3s linear infinite}
+.sec{padding:36px 0}.num{float:right;font:800 1.6rem Poppins;color:var(--lav)}
+ul.plain{list-style:none;padding:0;margin:0}ul.imp li{padding:8px 0 8px 26px;position:relative}
+ul.imp li:before{content:"";position:absolute;left:0;top:17px;width:12px;height:12px;border-radius:50%;background:var(--turq)}
+footer{padding:30px 0;text-align:center;color:var(--muted)}
+.shell{display:flex;min-height:100vh}
+.side{width:250px;background:#fff;border-right:1px solid var(--line);padding:18px 12px;display:flex;flex-direction:column;gap:18px;position:sticky;top:0;height:100vh;transition:width .25s}
+.side.c{width:74px}.side.c .lbl{display:none}.side nav{display:flex;flex-direction:column;gap:6px;flex:1}
+.nav-item,.col{display:flex;align-items:center;gap:12px;min-height:46px;padding:10px 14px;border-radius:14px;font:700 .93rem Manrope;color:var(--indigo);text-decoration:none;background:none;border:0;cursor:pointer;white-space:nowrap}
+.nav-item:hover,.col:hover{background:var(--bg2)}.nav-item.active{background:var(--vs);color:#fff}
+.dot{width:20px;text-align:center;font-weight:800}
+.main{flex:1;padding:30px;min-width:0}.page{max-width:980px;animation:fu .5s ease both}
+.badge{display:inline-block;padding:6px 14px;border-radius:999px;font-weight:700;font-size:.9rem;background:#fff;border:1px solid var(--line)}
+.row{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0}
+.cam{position:relative;background:#10152B;border-radius:22px;overflow:hidden;aspect-ratio:4/3;max-width:640px;display:grid;place-items:center;color:#cbd5e1;text-align:center;padding:20px}
+.cam video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scaleX(-1)}
+.cam .line{display:none}.cam.on .line{display:block}
+.res{border-left:6px solid var(--lav);background:#fff;border-radius:14px;padding:16px 20px;margin-top:16px;max-width:640px}
+.ph{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.ph button{min-height:76px;font-size:1.1rem;text-align:left}
+.big{font:700 clamp(1.6rem,5vw,3rem) Poppins;color:var(--navy);background:#fff;border:2px solid var(--lav);border-radius:20px;padding:24px;margin-bottom:16px;min-height:110px}
+textarea,input[type=search]{width:100%;font:inherit;border:2px solid var(--line);border-radius:14px;padding:12px 14px;background:#fff}
+textarea{min-height:170px}textarea:focus,input:focus{border-color:var(--vs);outline:0}
+.hi{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.hi:last-child{border:0}.x{min-width:44px;min-height:44px;border:0;background:none;border-radius:12px;cursor:pointer;color:var(--muted);font-size:1.1rem}.x:hover{background:#FDECEA;color:#B42318}
+.note{background:#FFF7E6;border:1px solid #F5D9A0;border-radius:12px;padding:12px 16px;color:#6B4A00;margin:14px 0}
+@keyframes fl{50%{transform:translateY(-16px)}}@keyframes sc{from{top:0}to{top:100%}}@keyframes fu{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@media(max-width:860px){.hero{grid-template-columns:1fr}.side{width:74px}.side .lbl{display:none}.main{padding:18px 14px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div id="landing">
+<header class="topbar"><div class="wrap">
+ <a href="#/home" class="brand"><span class="mark" aria-hidden="true">SB</span><span class="bn">SignBridge AI</span></a>
+ <nav class="nav" aria-label="Primary"><a href="#/home">Home</a><a href="#/features">Features</a><a href="#/how">How It Works</a><a href="#/about">About</a><a class="btn p" href="#/dash">Get Started</a></nav>
+</div></header>
+<div class="wrap">
+ <section id="home" class="hero">
+  <div>
+   <p class="eyebrow">Breaking Silence. Connecting People.</p>
+   <h1>Communication Without Boundaries.</h1>
+   <p class="lead">Empowering communication through AI-powered Indian Sign Language recognition, speech conversion and accessible technology.</p>
+   <div class="cta"><a class="btn p" href="#/translator">Start Translating</a><a class="btn" href="#/features">Explore Features</a></div>
+   <p class="muted">Prototype: sign recognition needs a trained model, which is still in development. Speech, emergency phrases and history already work.</p>
+  </div>
+  <div class="art" aria-hidden="true"><span class="blob b1"></span><span class="blob b2"></span>
+   <div class="scan"><svg viewBox="0 0 320 290" width="100%"><polygon points="170,262 130,232 150,210 170,205 190,208 208,220" fill="#8B5CF6" fill-opacity=".12" stroke="#8B5CF6" stroke-width="2"/>
+   <g fill="none" stroke="#8B5CF6" stroke-width="3" stroke-linecap="round"><polyline points="150,210 142,170 140,140 139,118"/><polyline points="170,205 170,160 170,128 170,105"/><polyline points="190,208 194,166 196,136 197,114"/><polyline points="208,220 218,190 224,170 228,154"/><polyline points="130,232 112,212 98,196 88,182"/></g>
+   <g fill="#25245A"><circle cx="142" cy="170" r="4"/><circle cx="140" cy="140" r="4"/><circle cx="170" cy="160" r="4"/><circle cx="170" cy="128" r="4"/><circle cx="194" cy="166" r="4"/><circle cx="196" cy="136" r="4"/><circle cx="218" cy="190" r="4"/><circle cx="112" cy="212" r="4"/></g>
+   <g fill="#2DD4BF"><circle cx="139" cy="118" r="6"/><circle cx="170" cy="105" r="6"/><circle cx="197" cy="114" r="6"/><circle cx="228" cy="154" r="6"/><circle cx="88" cy="182" r="6"/></g></svg><span class="line"></span></div>
+  </div>
+ </section>
+ <section id="how" class="sec"><h2>How It Works</h2><div class="g3">
+  <div class="card"><span class="num">1</span><span class="chip">1</span><h3>Show Your Sign</h3><p>Face the camera and sign a supported gesture.</p></div>
+  <div class="card"><span class="num">2</span><span class="chip">2</span><h3>AI Understands Your Gesture</h3><p>Hand landmarks are passed to a trained model.</p></div>
+  <div class="card"><span class="num">3</span><span class="chip">3</span><h3>Communicate Through Text and Voice</h3><p>Read the result or hear it spoken.</p></div></div></section>
+ <section id="features" class="sec"><h2>Features</h2><div class="g3">
+  <a class="card" href="#/translator"><span class="chip">S</span><h3>Live Sign Translator</h3><p>Camera ready. Recognition arrives once the model is trained.</p></a>
+  <a class="card" href="#/speech"><span class="chip">T</span><h3>Speech-to-Text</h3><p>Speak and read your words. Works in Chrome and Edge.</p></a>
+  <a class="card" href="#/emergency"><span class="chip">!</span><h3>Emergency Communication</h3><p>Large, spoken quick phrases.</p></a>
+  <a class="card" href="#/learn"><span class="chip">L</span><h3>Learn Indian Sign Language</h3><p>Lessons are added once signs are verified.</p></a>
+  <a class="card" href="#/history"><span class="chip">H</span><h3>Translation History</h3><p>Searchable text history stored only on your device.</p></a>
+  <div class="card"><span class="chip">A</span><h3>Accessible by Design</h3><p>High contrast, keyboard friendly, large touch targets.</p></div></div></section>
+ <section class="sec"><h2>Who It Can Help</h2><div class="card"><ul class="plain imp"><li>Deaf and hard-of-hearing people in daily conversations.</li><li>Hospitals and clinics where an interpreter may not be available.</li><li>Schools, colleges and public service centres.</li></ul><p class="muted">These are intended use cases, not claims of existing deployments.</p></div></section>
+ <section id="about" class="sec"><h2>About</h2><div class="card"><p>SignBridge AI is a hackathon prototype. It combines hand tracking with a model trained on a small, defined Indian Sign Language vocabulary, plus speech tools and emergency phrases. Continuous signing, grammar and facial expressions are future scope.</p></div></section>
+ <footer>SignBridge AI. Breaking Silence. Connecting People.</footer>
+</div></div>
+
+<div id="app" class="shell" hidden>
+ <aside class="side" id="side" aria-label="Main navigation">
+  <a href="#/home" class="brand"><span class="mark" aria-hidden="true">SB</span><span class="bn lbl">SignBridge AI</span></a>
+  <nav>
+   <a class="nav-item" data-to="dash" href="#/dash"><span class="dot">D</span><span class="lbl">Dashboard</span></a>
+   <a class="nav-item" data-to="translator" href="#/translator"><span class="dot">S</span><span class="lbl">Live Sign Translator</span></a>
+   <a class="nav-item" data-to="speech" href="#/speech"><span class="dot">T</span><span class="lbl">Speech-to-Text</span></a>
+   <a class="nav-item" data-to="emergency" href="#/emergency"><span class="dot">!</span><span class="lbl">Emergency Mode</span></a>
+   <a class="nav-item" data-to="learn" href="#/learn"><span class="dot">L</span><span class="lbl">Learn ISL</span></a>
+   <a class="nav-item" data-to="history" href="#/history"><span class="dot">H</span><span class="lbl">Translation History</span></a>
+  </nav>
+  <button class="col" id="col" aria-label="Collapse or expand sidebar"><span class="dot">&laquo;</span><span class="lbl">Collapse</span></button>
+ </aside>
+ <main class="main">
+  <section class="page" data-app="dash"><h1>Welcome to SignBridge AI</h1><p class="lead">Breaking Silence. Connecting People. Pick a tool to begin.</p>
+   <p class="badge">Sign recognition model: not trained yet</p>
+   <div class="g3" style="margin:20px 0">
+    <a class="card" href="#/translator"><h3>Live Sign Translator</h3><p class="muted">Camera preview</p></a>
+    <a class="card" href="#/speech"><h3>Speech-to-Text</h3><p class="muted">Speak and read</p></a>
+    <a class="card" href="#/emergency"><h3>Emergency Mode</h3><p class="muted">Large spoken phrases</p></a></div>
+   <div class="card"><h2>Recent activity</h2><div id="recent"></div></div></section>
+
+  <section class="page" data-app="translator" hidden><h1>Live Sign Translator</h1>
+   <div class="note"><strong>Be aware:</strong> hand tracking and the gesture model are not connected yet, so no sign is recognized. This page only shows your camera. No video leaves your device.</div>
+   <div class="cam" id="camBox"><video id="cam" autoplay playsinline muted aria-label="Webcam preview"></video><span id="camHelp">Press Start Camera and allow access. Sit in good light with both hands visible.</span><span class="line"></span></div>
+   <div class="row"><button class="btn p" id="camOn">Start Camera</button><button class="btn" id="camOff" disabled>Stop Camera</button></div>
+   <p class="muted" id="camMsg" role="status"></p>
+   <div class="res"><strong>Recognized sign:</strong> none. The model is not trained, so nothing is guessed or faked.</div></section>
+
+  <section class="page" data-app="speech" hidden><h1>Speech-to-Text</h1>
+   <p class="lead">Speak and read what was said. Uses your browser&rsquo;s speech recognition (Chrome or Edge, internet needed).</p>
+   <div class="row"><button class="btn p" id="rec">Start recording</button><button class="btn" id="stopRec" disabled>Stop recording</button></div>
+   <label class="muted" for="tx">Transcript</label><textarea id="tx" placeholder="Your words will appear here"></textarea>
+   <div class="row"><button class="btn" id="cp">Copy</button><button class="btn" id="sv">Save to history</button><button class="btn d" id="clr">Clear</button></div>
+   <p class="muted" id="sMsg" role="status"></p></section>
+
+  <section class="page" data-app="emergency" hidden><h1>Emergency Mode</h1>
+   <div class="note">These buttons show and speak a phrase. They do <strong>not</strong> contact emergency services or anyone else.</div>
+   <div class="big" id="big" role="status" aria-live="assertive">Choose a phrase</div>
+   <div class="ph" id="ph"></div></section>
+
+  <section class="page" data-app="learn" hidden><h1>Learn Indian Sign Language</h1>
+   <div class="note">Lesson content is not added yet. Signs will be published only after they are checked against trusted ISL references, so nothing here is guessed.</div>
+   <div class="g3"><div class="card"><h3>Basic Greetings</h3><p class="muted">Coming soon</p></div><div class="card"><h3>Alphabet Signs</h3><p class="muted">Coming soon</p></div><div class="card"><h3>Numbers</h3><p class="muted">Coming soon</p></div><div class="card"><h3>Common Words</h3><p class="muted">Coming soon</p></div><div class="card"><h3>Emergency Signs</h3><p class="muted">Coming soon</p></div><div class="card"><h3>Everyday Communication</h3><p class="muted">Coming soon</p></div></div></section>
+
+  <section class="page" data-app="history" hidden><h1>Translation History</h1>
+   <p class="lead">Saved only in this browser. Video and audio are never stored.</p>
+   <div class="row"><input type="search" id="q" placeholder="Search history" aria-label="Search history" style="flex:1;min-width:200px"><button class="btn d" id="clrAll">Clear all</button></div>
+   <div class="card" id="hist"></div></section>
+ </main>
+</div>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const KEY='signbridge_history';
+const load=()=>{try{return JSON.parse(localStorage.getItem(KEY))||[]}catch(e){return[]}};
+const save=a=>{try{localStorage.setItem(KEY,JSON.stringify(a))}catch(e){}};
+function addHist(text,kind){const a=load();a.unshift({id:Date.now()+Math.random(),text,kind,at:new Date().toLocaleString()});save(a.slice(0,200))}
+function list(el,rows,del){el.textContent='';if(!rows.length){const p=document.createElement('p');p.className='muted';p.textContent='Nothing here yet.';el.append(p);return}
+ rows.forEach(r=>{const d=document.createElement('div');d.className='hi';const w=document.createElement('div');const s=document.createElement('strong');s.textContent=r.text;const m=document.createElement('div');m.className='muted';m.textContent=r.kind.replace(/_/g,' ')+' \u00b7 '+r.at;w.append(s,m);d.append(w);
+  if(del){const b=document.createElement('button');b.className='x';b.textContent='\u2715';b.setAttribute('aria-label','Delete record: '+r.text);b.onclick=()=>{save(load().filter(x=>x.id!==r.id));renderHistory()};d.append(b)}el.append(d)})}
+const renderRecent=()=>list($('#recent'),load().slice(0,5),false);
+function renderHistory(){const q=$('#q').value.toLowerCase();list($('#hist'),load().filter(r=>r.text.toLowerCase().includes(q)),true);$('#clrAll').disabled=!load().length}
+$('#q').oninput=renderHistory;
+$('#clrAll').onclick=()=>{if(confirm('Delete all history? This cannot be undone.')){save([]);renderHistory()}};
+
+const views=['dash','translator','speech','emergency','learn','history'];
+function route(){const h=location.hash.replace(/^#\/?/,'')||'home',app=views.includes(h);
+ $('#landing').hidden=app;$('#app').hidden=!app;
+ if(app){$$('[data-app]').forEach(v=>v.hidden=v.dataset.app!==h);$$('.nav-item').forEach(a=>a.classList.toggle('active',a.dataset.to===h));window.scrollTo(0,0);
+  if(h==='dash')renderRecent();if(h==='history')renderHistory();if(h!=='translator')stopCam();if(h!=='speech')stopRec()}
+ else{const t=['features','how','about'].includes(h)?$('#'+h):null;t?t.scrollIntoView():window.scrollTo(0,0)}}
+addEventListener('hashchange',route);route();
+$('#col').onclick=()=>$('#side').classList.toggle('c');
+
+let stream=null;
+async function startCam(){try{stream=await navigator.mediaDevices.getUserMedia({video:true});$('#cam').srcObject=stream;$('#camHelp').hidden=true;$('#camBox').classList.add('on');
+ $('#camOn').disabled=true;$('#camOff').disabled=false;$('#camMsg').textContent='Camera is on. Tracking and recognition are not connected yet.'}
+ catch(e){$('#camMsg').textContent='Camera unavailable or permission denied. Allow camera access in the browser address bar and try again.'}}
+function stopCam(){if(stream)stream.getTracks().forEach(t=>t.stop());stream=null;$('#cam').srcObject=null;$('#camHelp').hidden=false;$('#camBox').classList.remove('on');$('#camOn').disabled=false;$('#camOff').disabled=true}
+$('#camOn').onclick=startCam;$('#camOff').onclick=()=>{stopCam();$('#camMsg').textContent='Camera stopped.'};
+
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;let rec=null,base='';
+function stopRec(){if(rec){try{rec.stop()}catch(e){}}rec=null;$('#rec').disabled=false;$('#stopRec').disabled=true}
+$('#rec').onclick=()=>{if(!SR){$('#sMsg').textContent='This browser does not support speech recognition. Please use Chrome or Edge.';return}
+ rec=new SR();rec.lang='en-IN';rec.continuous=true;rec.interimResults=true;base=$('#tx').value?$('#tx').value+' ':'';
+ rec.onresult=e=>{let t='';for(let i=0;i<e.results.length;i++)t+=e.results[i][0].transcript;$('#tx').value=base+t};
+ rec.onerror=e=>{$('#sMsg').textContent=e.error==='not-allowed'?'Microphone permission was denied. Allow it in the address bar.':'Speech error: '+e.error};
+ rec.onend=()=>{$('#rec').disabled=false;$('#stopRec').disabled=true};
+ rec.start();$('#rec').disabled=true;$('#stopRec').disabled=false;$('#sMsg').textContent='Listening...'};
+$('#stopRec').onclick=()=>{stopRec();$('#sMsg').textContent='Stopped.'};
+$('#clr').onclick=()=>{$('#tx').value='';$('#sMsg').textContent='Cleared.'};
+$('#cp').onclick=async()=>{try{await navigator.clipboard.writeText($('#tx').value);$('#sMsg').textContent='Copied.'}catch(e){$('#tx').select();$('#sMsg').textContent='Press Ctrl+C to copy the selected text.'}};
+$('#sv').onclick=()=>{const t=$('#tx').value.trim();if(!t){$('#sMsg').textContent='Nothing to save.';return}addHist(t,'speech_to_text');$('#sMsg').textContent='Saved to history.'};
+
+['I need help.','Please call a doctor.','I am feeling unwell.','I need water.','Please contact my family.','I need assistance.','I am in pain.','Please call emergency services.'].forEach(p=>{
+ const b=document.createElement('button');b.className='btn';b.textContent=p;
+ b.onclick=()=>{$('#big').textContent=p;addHist(p,'emergency');if('speechSynthesis' in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(p);u.lang='en-IN';speechSynthesis.speak(u)}};
+ $('#ph').append(b)});
+</script>
+</body>
+</html>
